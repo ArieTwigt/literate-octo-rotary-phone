@@ -62,3 +62,4 @@ def information_circle(sizes_circle):
 
 #%%
 information_circle(sizes_circle)
+# %%
