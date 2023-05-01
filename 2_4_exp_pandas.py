@@ -1,5 +1,6 @@
 # %%
 import pandas as pd
+import numpy as np
 
 # %%
 data = pd.read_csv("data/german_data_clean.csv")
@@ -106,4 +107,48 @@ data_grouped = (
 # %%
 data_grouped
 
+# %% conditional column
+data['50_plus'] = np.where(data['age_years'] > 50, "yes", "no")
+
+# %%
+data['50_plus'].value_counts()
+
+# %%
+times_10 = lambda x,y: x * 10 / y
+
+#%%
+times_10(10, 2)
+
+
+## Assignments
+
+# 1.
+#%% Done
+df = pd.read_csv("data/german_data_clean.csv")
+
+# 2.
+#%%
+df['paid_back'] = np.where(df['response'] == 0, "yes", "no")
+df['paid_back'].value_counts()
+
+# 3.
+# %%
+df_filtered = df.query("credit_amount >= 5000")
+
+# 4.
+# %%
+df_sorted = df.sort_values(by="credit_amount", ascending=False)
+df_sorted
+
+# 5. 
+#%%
+selected_columns = ['purpose', 'credit_amount']
+df_grouped = df[selected_columns].groupby("purpose").mean("credit_amount")
+df_grouped
+
+# 6. 
+# %%
+df_grouped.columns
+# %%
+df_grouped.reset_index()
 # %%
