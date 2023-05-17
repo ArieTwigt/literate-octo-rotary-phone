@@ -52,7 +52,7 @@ best_params = CV_rfc.best_params_
 
 
 # %% Train the "real model"
-model_2 = RandomForestClassifier(best_params)
+model_2 = RandomForestClassifier(**best_params)
 
 model_2.fit(X_train, y_train)
 
