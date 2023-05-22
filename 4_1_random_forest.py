@@ -6,6 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pickle
 
 # %% import the german dataset
 df = pd.read_csv("data/german_data_clean.csv")
@@ -104,6 +105,7 @@ df_importances = df_importances.sort_values("importance", ascending=False)
 # %% check the most important features
 df_importances
 
-# %%
+# %% export model
+with open('path/to/file', 'wb') as f:
+    pickle.dump(model_2, f)
 
-# %%

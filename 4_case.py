@@ -27,4 +27,18 @@ for brand in brands:
 
 # %%
 df_cars = pd.concat(df_list)
+
+
 # %%
+
+# %% 1. Cheapest car
+
+# convert the 'catalogus' column
+#%% convert to numeric
+df_cars['catalogusprijs'] = df_cars['catalogusprijs'].astype(float)
+
+# %% get the cheapest car
+min_price = df_cars['catalogusprijs'].min()
+df_cars.query("catalogusprijs == @min_price")
+
+# %% 2. 
