@@ -4,6 +4,9 @@ import os
 import sys
 import pandas as pd
 
+import plotly.express as px
+import plotly.graph_objects as go
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -51,8 +54,49 @@ weather_df = pd.DataFrame({
     'date': weather_dt_txt_list,
     'temp': weather_temp_list,
     'rain_mm': weather_rain_mm_list,
+    'wind_speed': weather_wind_speed_list,
     'feels_like': weather_feels_like_list
 })
 
 
+#%% Convert to the right data type
+weather_df['date'] = pd.to_datetime(weather_df['date'])
+
+# %% Create the visualisation
+fig = go.Figure()
+
+#%% temperature
+fig.add_trace(go.Scatter(x=weather_df['date'],
+                         y=weather_df['temp'],
+                         name="Temperature",
+                         line={
+                             'color': 'blue',
+                             'width': 6
+                         }))
+
+#%% feels like temperature
+fig.add_trace(go.Scatter(x=weather_df['date'],
+                         y=weather_df['feels_like'],
+                         name="Feels like temperature",
+                         line={
+                             'color': 'lightblue',
+                             'width': 4,
+                             'dash':'dot'
+                         }))
+
+#%% wind speed
+fig.add_trace(go.Bar(x=weather_df['date'], 
+                     y=weather_df['wind_speed'],
+                     name="Wind speed",
+                     marker={
+                                'color': 'gray',
+                                'line': {
+                                    '       width': 2
+                                        },
+                                'opacity': 0.6
+                                }
+                     ))
+
 #%%
+fig.show()
+# %%

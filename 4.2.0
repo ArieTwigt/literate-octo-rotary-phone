@@ -1,0 +1,15 @@
+Collecting nbformat
+  Using cached nbformat-5.8.0-py3-none-any.whl (77 kB)
+Requirement already satisfied: fastjsonschema in c:\users\twigt\appdata\roaming\python\python311\site-packages (from nbformat) (2.16.3)
+Collecting jsonschema>=2.6
+  Using cached jsonschema-4.17.3-py3-none-any.whl (90 kB)
+Requirement already satisfied: jupyter-core in c:\users\twigt\appdata\roaming\python\python311\site-packages (from nbformat) (5.3.0)
+Requirement already satisfied: traitlets>=5.1 in c:\users\twigt\appdata\roaming\python\python311\site-packages (from nbformat) (5.9.0)
+Collecting attrs>=17.4.0
+  Using cached attrs-23.1.0-py3-none-any.whl (61 kB)
+Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0
+  Using cached pyrsistent-0.19.3-cp311-cp311-win_amd64.whl (62 kB)
+Requirement already satisfied: platformdirs>=2.5 in c:\users\twigt\appdata\local\programs\python\python311\lib\site-packages (from jupyter-core->nbformat) (3.2.0)
+Requirement already satisfied: pywin32>=300 in c:\users\twigt\appdata\roaming\python\python311\site-packages (from jupyter-core->nbformat) (306)
+Installing collected packages: pyrsistent, attrs, jsonschema, nbformat
+Successfully installed attrs-23.1.0 jsonschema-4.17.3 nbformat-5.8.0 pyrsistent-0.19.3
